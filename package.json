@@ -1,0 +1,43 @@
+{
+  "name": "focus",
+  "version": "1.0.0",
+  "description": "Voice-first productivity tool for nautical carpentry and yacht interior manufacturing",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "db:generate": "drizzle-kit generate:pg",
+    "db:push": "drizzle-kit push:pg",
+    "db:studio": "drizzle-kit studio"
+  },
+  "keywords": [
+    "voice",
+    "productivity",
+    "carpentry",
+    "yacht",
+    "AI"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "drizzle-orm": "^0.29.3",
+    "pg": "^8.11.3",
+    "dotenv": "^16.3.1",
+    "openai": "^4.28.0",
+    "axios": "^1.6.5",
+    "cors": "^2.8.5",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.5",
+    "@types/pg": "^8.10.9",
+    "@types/cors": "^2.8.17",
+    "@types/multer": "^1.4.11",
+    "ts-node": "^10.9.2",
+    "drizzle-kit": "^0.20.12"
+  }
+}

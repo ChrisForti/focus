@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus - Voice-First Productivity for Boat Builders</title>
+    <meta
+      name="description"
+      content="Hands-free voice productivity tool for nautical carpentry and yacht interior manufacturing"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+          "Ubuntu", sans-serif;
+        line-height: 1.6;
+        color: #1e293b;
+        background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        padding: 20px 0;
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 700;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .hero {
+        padding: 100px 0 80px;
+        text-align: center;
+        color: #fff;
+      }
+
+      .hero h1 {
+        font-size: 56px;
+        font-weight: 800;
+        margin-bottom: 24px;
+        background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero p {
+        font-size: 24px;
+        color: #cbd5e1;
+        margin-bottom: 40px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 16px 32px;
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        color: white;
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .features {
+        padding: 80px 0;
+        background: #fff;
+      }
+
+      .features h2 {
+        text-align: center;
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 60px;
+        color: #0f172a;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+      }
+
+      .feature-card {
+        padding: 32px;
+        background: #f8fafc;
+        border-radius: 16px;
+        border: 2px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-color: #3b82f6;
+      }
+
+      .feature-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .feature-card h3 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: #0f172a;
+      }
+
+      .feature-card p {
+        color: #64748b;
+        line-height: 1.7;
+      }
+
+      .tech-stack {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+        color: #fff;
+      }
+
+      .tech-stack h2 {
+        text-align: center;
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 60px;
+      }
+
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .tech-item {
+        padding: 24px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+      }
+
+      .tech-item h4 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: #3b82f6;
+      }
+
+      .cta-section {
+        padding: 100px 0;
+        text-align: center;
+        background: #fff;
+      }
+
+      .cta-section h2 {
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #0f172a;
+      }
+
+      .cta-section p {
+        font-size: 20px;
+        color: #64748b;
+        margin-bottom: 40px;
+      }
+
+      footer {
+        padding: 40px 0;
+        text-align: center;
+        background: #0f172a;
+        color: #94a3b8;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .demo-video {
+        margin: 60px auto;
+        max-width: 800px;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .code-example {
+        background: #1e293b;
+        padding: 24px;
+        border-radius: 12px;
+        color: #e2e8f0;
+        font-family: "Monaco", "Courier New", monospace;
+        font-size: 14px;
+        overflow-x: auto;
+        margin: 20px 0;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 36px;
+        }
+
+        .hero p {
+          font-size: 18px;
+        }
+
+        .features h2,
+        .tech-stack h2,
+        .cta-section h2 {
+          font-size: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="logo">🚤 Focus</div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Work Hands-Free in the Workshop</h1>
+        <p>
+          Voice-first productivity tool designed for nautical carpentry and
+          yacht interior manufacturing. Capture verbal notes and get
+          AI-structured to-do lists.
+        </p>
+        <div class="cta-buttons">
+          <a href="https://github.com/ChrisForti/focus" class="btn btn-primary"
+            >View on GitHub</a
+          >
+          <a href="#features" class="btn btn-secondary">Learn More</a>
+        </div>
+
+        <div class="demo-video">
+          <h3 style="margin-bottom: 20px; font-size: 24px">How It Works</h3>
+          <p style="color: #cbd5e1; margin-bottom: 20px">
+            1. Record your voice instructions<br />
+            2. AI transcribes and extracts tasks<br />
+            3. Get organized to-do lists with priorities
+          </p>
+          <div class="code-example">
+            curl -X POST https://api.focus.app/process-voice \<br />
+            -F "audio=@voice-note.m4a"<br /><br />
+            <span style="color: #4ade80"># Returns structured tasks:</span
+            ><br />
+            {<br />
+            "tasks": [<br />
+            {<br />
+            "task": "Cut transom with 5mm CNC offset",<br />
+            "priority": "high",<br />
+            "category": "CNC"<br />
+            }<br />
+            ]<br />
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="container">
+        <h2>Built for Craftspeople</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎤</div>
+            <h3>Voice-First</h3>
+            <p>
+              Capture tasks hands-free while working. No need to stop, clean
+              your hands, or type.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🤖</div>
+            <h3>AI-Powered</h3>
+            <p>
+              OpenAI Whisper transcription + Claude 3.5 for intelligent task
+              extraction optimized for boat building.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🏷️</div>
+            <h3>Smart Categorization</h3>
+            <p>
+              Automatically identifies CNC, Assembly, Finishing, and Carpentry
+              tasks with proper priorities.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Real-Time Processing</h3>
+            <p>
+              Get structured to-do lists in seconds. Integrates with your
+              existing workflow.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔧</div>
+            <h3>Workshop-Ready</h3>
+            <p>
+              Understands nautical terminology: transoms, cold-molding,
+              bulkheads, offsets, and more.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Track Progress</h3>
+            <p>
+              PostgreSQL database stores all tasks with completion tracking and
+              project management.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tech-stack">
+      <div class="container">
+        <h2>Technical Stack</h2>
+        <div class="tech-grid">
+          <div class="tech-item">
+            <h4>Backend</h4>
+            <p>Node.js + Express + TypeScript</p>
+          </div>
+          <div class="tech-item">
+            <h4>Database</h4>
+            <p>PostgreSQL + Drizzle ORM</p>
+          </div>
+          <div class="tech-item">
+            <h4>AI Models</h4>
+            <p>Whisper + Claude 3.5 Sonnet</p>
+          </div>
+          <div class="tech-item">
+            <h4>Infrastructure</h4>
+            <p>Railway + GitHub Actions</p>
+          </div>
+          <div class="tech-item">
+            <h4>Mobile</h4>
+            <p>React Native (Expo) - Coming Soon</p>
+          </div>
+          <div class="tech-item">
+            <h4>API Provider</h4>
+            <p>OpenAI + OpenRouter</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Get Started?</h2>
+        <p>
+          Open source and ready to deploy. Perfect for boat builders and
+          workshop professionals.
+        </p>
+        <div class="cta-buttons">
+          <a href="https://github.com/ChrisForti/focus" class="btn btn-primary"
+            >Clone Repository</a
+          >
+          <a
+            href="https://github.com/ChrisForti/focus#readme"
+            class="btn btn-secondary"
+            >Documentation</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2026 Focus. Built for craftspeople who work with their hands.
+          🔨⚓
+        </p>
+        <p style="margin-top: 10px; font-size: 14px">
+          <a
+            href="https://github.com/ChrisForti/focus"
+            style="color: #3b82f6; text-decoration: none"
+            >GitHub</a
+          >
+          •
+          <a
+            href="https://github.com/ChrisForti/focus/issues"
+            style="color: #3b82f6; text-decoration: none"
+            >Issues</a
+          >
+          •
+          <a
+            href="https://github.com/ChrisForti"
+            style="color: #3b82f6; text-decoration: none"
+            >@ChrisForti</a
+          >
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
